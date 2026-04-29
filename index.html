@@ -45,6 +45,478 @@
             padding: 0 40px;
         }
 
+        /* Navbar */
+        #navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: var(--transition);
+        }
+
+        #navbar.scrolled {
+            background-color: rgba(249, 247, 242, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 12px 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 20px;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: var(--font-header);
+            font-size: 28px;
+            letter-spacing: -0.02em;
+            color: var(--color-charcoal);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--color-charcoal);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        nav a:hover { opacity: 0.6; }
+
+        .lang-selector {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 2px;
+            color: inherit;
+            font-weight: inherit;
+        }
+
+        .lang-btn.active { border-bottom: 1px solid var(--color-charcoal); }
+
+        .btn-nav {
+            padding: 8px 15px;
+            border: 1px solid var(--color-charcoal);
+            border-radius: 2px;
+            white-space: nowrap;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 0 60px;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-family: var(--font-header);
+            font-size: 110px;
+            line-height: 1;
+            font-weight: 400;
+            margin-bottom: 25px;
+            letter-spacing: -0.03em;
+        }
+
+        .hero-sub {
+            font-size: 20px;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: var(--color-charcoal-muted);
+        }
+
+        .hero-stats {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-matcha-deep);
+            margin-bottom: 40px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 16px 30px;
+            border-radius: 2px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .btn-primary { background: var(--color-charcoal); color: var(--color-sand); border: 1px solid var(--color-charcoal); }
+        .btn-secondary { background: transparent; color: var(--color-charcoal); border: 1px solid var(--color-charcoal); }
+        .btn-white-bg { background-color: #FFFFFF !important; color: #000000 !important; border: 1px solid #FFFFFF !important; }
+
+        .hero-tags {
+            position: relative;
+            margin-top: 60px;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .tag {
+            background: white;
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 11px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        /* Story Section */
+        .story-section { padding: 120px 0; background: white; }
+        .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+        .eyebrow { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--color-matcha); margin-bottom: 20px; font-weight: 700; }
+        .story-content h2 { font-family: var(--font-header); font-size: 64px; line-height: 1.1; margin-bottom: 25px; }
+        .story-image img { width: 100%; height: auto; border-radius: 4px; }
+
+        /* Menu Section */
+        .menu-section { padding: 120px 0; }
+        .menu-header { text-align: center; margin-bottom: 80px; }
+        .tab-nav { display: flex; justify-content: center; gap: 40px; margin-bottom: 60px; }
+        .tab-btn { background: none; border: none; padding: 10px 5px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; color: var(--color-charcoal-muted); }
+        .tab-btn.active { color: var(--color-charcoal); border-bottom: 2px solid var(--color-charcoal); }
+
+        .tab-content { display: none; animation: fadeIn 0.6s ease; }
+        .tab-content.active { display: block; }
+
+        .menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px 100px; }
+        .menu-category { grid-column: 1 / -1; font-family: var(--font-header); font-size: 24px; border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 10px; margin-top: 40px; }
+        .menu-card img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px; margin-bottom: 20px; }
+        .card-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+        .menu-card h3 { font-size: 14px; font-weight: 600; text-transform: uppercase; }
+        .price { font-family: var(--font-header); font-size: 18px; }
+        .menu-card p { font-size: 13px; color: var(--color-charcoal-muted); }
+
+        /* Workshop Section */
+        .workshop-section { padding: 120px 0; background: var(--color-charcoal); color: var(--color-sand); }
+        .workshop-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .workshop-card { background: rgba(255,255,255,0.03); padding: 60px; border-radius: 4px; }
+        .workshop-card.highlight { background: var(--color-sand); color: var(--color-charcoal); }
+        .workshop-card h3 { font-family: var(--font-header); font-size: 42px; margin: 20px 0; }
+        .w-details { list-style: none; margin-bottom: 40px; font-size: 14px; }
+
+        /* Social Proof & Ticker */
+        .social-proof { padding: 120px 0; overflow: hidden; }
+        .stat-row { display: flex; justify-content: center; gap: 60px; font-size: 10px; letter-spacing: 0.1em; margin-bottom: 80px; font-weight: 700; color: var(--color-matcha); }
+        .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .review-card { background: white; padding: 40px; border-radius: 4px; box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
+        
+        .ticker-wrap { background: white; padding: 40px 0; margin: 60px 0; overflow: hidden; }
+        .ticker { display: flex; white-space: nowrap; animation: ticker 25s linear infinite; }
+        .ticker span { font-family: var(--font-header); font-size: 42px; margin-right: 80px; opacity: 0.15; }
+
+        /* Visit Section */
+        .visit-section { padding: 120px 0; background: white; }
+        .visit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .visit-card-box { background: var(--color-sand); padding: 60px; border-radius: 4px; }
+        .philosophy-box { background: var(--color-matcha-deep); color: white; padding: 60px; border-radius: 4px; }
+        .banners-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; }
+        .banner { background: var(--color-sand); padding: 40px; border-radius: 4px; }
+
+        /* Footer */
+        footer { padding: 80px 0; background: var(--color-sand); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 80px; margin-bottom: 60px; }
+        .footer-bottom { border-top: 1px solid rgba(0,0,0,0.05); padding-top: 30px; font-size: 10px; display: flex; justify-content: space-between; }
+
+        /* Modal Gallery */
+        .modal { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); }
+        .modal-content { width: 90%; max-width: 1200px; margin: 50px auto; max-height: 80vh; overflow-y: auto; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; padding: 20px; }
+        .gallery-grid img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+        .close-modal { position: absolute; top: 30px; right: 40px; color: white; font-size: 40px; cursor: pointer; }
+
+        @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        body.modal-open { overflow: hidden; }
+
+        /* APENAS AS ALTERAÇÕES PARA TELEMÓVEL - SEM MUDAR O RESTO */
+        @media (max-width: 768px) {
+            .container { padding: 0 20px; }
+            .hero h1 { font-size: 48px; }
+            .hero-btns { flex-direction: column; }
+            .nav-left, .nav-right a:not(.btn-nav) { display: none; }
+            .nav-container { grid-template-columns: 1fr auto; }
+            .story-grid, .menu-grid, .workshop-grid, .reviews-grid, .visit-grid, .banners-grid, .footer-grid { grid-template-columns: 1fr !important; gap: 30px; }
+            .tab-nav { gap: 15px; overflow-x: auto; justify-content: flex-start; padding-bottom: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="container nav-container">
+            <div class="nav-left">
+                <a href="#menu" data-en="Menu" data-pt="Menu">Menu</a>
+                <a href="#space-story" data-en="Our Story" data-pt="História">Our Story</a>
+            </div>
+            <a href="#" class="nav-logo">senzi</a>
+            <div class="nav-right">
+                <a href="#workshop" data-en="Workshops" data-pt="Workshops">Workshops</a>
+                <div class="lang-selector">
+                    <button class="lang-btn active" onclick="setLanguage('en')">EN</button>
+                    <span>/</span>
+                    <button class="lang-btn" onclick="setLanguage('pt')">PT</button>
+                </div>
+                <a href="#visit" class="btn-nav" data-en="Visit" data-pt="Visite">Visit</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h1 data-en="A place to be.<br>Not to perform." data-pt="Um lugar para estar.<br>Não para atuar.">A place to be.<br>Not to perform.</h1>
+            <p class="hero-sub" data-en="Specialty coffee. Ceremonial matcha. Brunch kitchen. Cais do Sodré, Lisboa." data-pt="Café de especialidade. Matcha cerimonial. Cozinha de brunch. Cais do Sodré, Lisboa.">Specialty coffee. Ceremonial matcha. Brunch kitchen. Cais do Sodré, Lisboa.</p>
+            <div class="hero-stats" data-en="⭐ 4.9 · 800 Reviews · Featured in Time Out" data-pt="⭐ 4.9 · 800 Críticas · Destaque na Time Out">⭐ 4.9 · 800 Reviews · Featured in Time Out</div>
+            <div class="hero-btns">
+                <a href="#visit" class="btn btn-primary" data-en="Visit Us" data-pt="Visite-nos">Visit Us</a>
+                <a href="#menu" class="btn btn-secondary" data-en="Menu" data-pt="Menu">Menu</a>
+            </div>
+            <div class="hero-tags">
+                <span class="tag">Coffee ☕</span><span class="tag">Matcha 🍵</span><span class="tag">Brunch 🍳</span>
+            </div>
+        </div>
+    </header>
+
+    <section id="space-story" class="story-section">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-content">
+                    <span class="eyebrow" data-en="Our Story" data-pt="A Nossa História">Our Story</span>
+                    <h2 data-en="From Yekaterinburg to Lisboa" data-pt="De Yekaterinburg para Lisboa">From Yekaterinburg to Lisboa</h2>
+                    <p data-en="A story of passion for specialty coffee and ceremonial matcha, now in the heart of Cais do Sodré." data-pt="Uma história de paixão por café e matcha cerimonial, agora no coração do Cais do Sodré.">A story of passion for specialty coffee and ceremonial matcha, now in the heart of Cais do Sodré.</p>
+                </div>
+                <div class="story-image">
+                    <img src="fotografia loja.webp" alt="Senzi Lisboa">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="menu-section">
+        <div class="container">
+            <div class="menu-header">
+                <h2 data-en="Menu" data-pt="Menu">Menu</h2>
+            </div>
+            <div class="tab-nav">
+                <button class="tab-btn active" onclick="openMenu(event, 'food')" data-en="Food" data-pt="Comida">Food</button>
+                <button class="tab-btn" onclick="openMenu(event, 'coffee')" data-en="Coffee" data-pt="Café">Coffee</button>
+                <button class="tab-btn" onclick="openMenu(event, 'matcha')" data-en="Matcha" data-pt="Matcha">Matcha</button>
+                <button class="tab-btn" onclick="openMenu(event, 'other')" data-en="Drinks" data-pt="Bebidas">Drinks</button>
+            </div>
+
+            <div id="food" class="tab-content active">
+                <div class="menu-grid">
+                    <div class="menu-category" data-en="All Day Breakfast" data-pt="Pequeno-Almoço">All Day Breakfast</div>
+                    <div class="menu-card">
+                        <img src="IMG_7243.jpg" alt="Benedict">
+                        <div class="card-header"><h3 data-en="Benedict Orange-Miso" data-pt="Benedict Laranja-Miso">Benedict Orange-Miso</h3><span class="price">15</span></div>
+                        <p data-en="Salted salmon, poached egg, citrus-miso hollandaise." data-pt="Salmão curado, ovo escalfado, holandês de miso.">Salted salmon, poached egg, citrus-miso hollandaise.</p>
+                    </div>
+                    <div class="menu-card">
+                        <img src="IMG_7245.jpg" alt="Omelette">
+                        <div class="card-header"><h3 data-en="Salmon Omelette" data-pt="Omeleta de Salmão">Salmon Omelette</h3><span class="price">14</span></div>
+                        <p data-en="Mozzarella, citrus cream cheese, harissa yoghurt." data-pt="Mozzarella, creme cítrico, iogurte harissa.">Mozzarella, creme cítrico, iogurte harissa.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="coffee" class="tab-content">
+                <div class="menu-grid">
+                    <div class="menu-category" data-en="Coffee Bar" data-pt="Bar de Café">Coffee Bar</div>
+                    <div class="menu-card"><div class="card-header"><h3>Flat White</h3><span class="price">3.8</span></div></div>
+                    <div class="menu-card"><div class="card-header"><h3>Batch Brew</h3><span class="price">3.5</span></div></div>
+                </div>
+            </div>
+
+            <div id="matcha" class="tab-content">
+                <div class="menu-grid">
+                    <div class="menu-category">Ceremonial Matcha</div>
+                    <div class="menu-card">
+                        <img src="IMG_7262.jpg" alt="Sakura Matcha">
+                        <div class="card-header"><h3>Sakura Matcha Cloud</h3><span class="price">6.5</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="other" class="tab-content">
+                <div class="menu-grid">
+                    <div class="menu-category" data-en="Drinks" data-pt="Bebidas">Drinks</div>
+                    <div class="menu-card"><div class="card-header"><h3>Fresh Orange Juice</h3><span class="price">4.5</span></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="workshop" class="workshop-section">
+        <div class="container">
+            <span class="eyebrow" data-en="Workshops" data-pt="Workshops">Workshops</span>
+            <h2 data-en="Matcha Ritual" data-pt="Ritual do Matcha">Matcha Ritual</h2>
+            <div class="workshop-grid">
+                <div class="workshop-card">
+                    <h3>The Basics</h3>
+                    <ul class="w-details"><li>✦ History</li><li>✦ Whisking technique</li></ul>
+                    <a href="https://instagram.com/senzi.lisboa" class="btn btn-secondary btn-white-bg">DM to Book</a>
+                </div>
+                <div class="workshop-card highlight">
+                    <h3>Modern Matcha</h3>
+                    <ul class="w-details"><li>✦ Cloud foam</li><li>✦ Plant milks</li></ul>
+                    <a href="https://instagram.com/senzi.lisboa" class="btn btn-primary">DM to Book</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="social-proof">
+        <div class="container">
+            <div class="stat-row">
+                <span>800+ GOOGLE REVIEWS</span><span>TIME OUT RECOMMENDED</span>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card"><p>"Best matcha in Lisbon, hands down."</p><span>— Sofia M.</span></div>
+                <div class="review-card"><p>"No laptops policy makes it so peaceful."</p><span>— David L.</span></div>
+            </div>
+            <div class="ticker-wrap">
+                <div class="ticker">
+                    <span>SENZI LISBOA</span><span>MATCHA RITUAL</span><span>KITCHEN & COFFEE</span><span>NO LAPTOPS</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="visit" class="visit-section">
+        <div class="container">
+            <div class="visit-grid">
+                <div class="visit-card-box">
+                    <h4 class="eyebrow">Address</h4>
+                    <p>Rua da Moeda 12, Lisboa</p>
+                    <br>
+                    <h4 class="eyebrow">Hours</h4>
+                    <p>Mon–Fri: 09:00 – 18:00</p>
+                    <p>Sat–Sun: 09:00 – 19:00</p>
+                </div>
+                <div class="philosophy-box">
+                    <h3>Architecture of Calm</h3>
+                    <p>A Japanese timber grid sanctuary in the heart of the city.</p>
+                    <button onclick="toggleGallery()" class="btn btn-secondary" style="color:white; border-color:white;">View Gallery</button>
+                </div>
+            </div>
+            <div class="banners-grid">
+                <div class="banner"><h4>Nomad Coffee</h4><p>Barcelona's best in Lisbon.</p></div>
+                <div class="banner"><h4>No Laptops</h4><p>Focus on the connection.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <div id="galleryModal" class="modal">
+        <span class="close-modal" onclick="toggleGallery()">&times;</span>
+        <div class="modal-content">
+            <div class="gallery-grid">
+                <img src="IMG_7302.jpg"> <img src="IMG_7303.jpg"> <img src="IMG_7304.jpg"> <img src="IMG_7305.jpg">
+                <img src="IMG_7306.jpg"> <img src="IMG_7307.jpg"> <img src="IMG_7308.jpg"> <img src="IMG_7309.jpg">
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container footer-grid">
+            <div><div class="nav-logo">senzi</div><p>kitchen · coffee · matcha</p></div>
+            <div>
+                <h4 class="eyebrow">Social</h4>
+                <a href="https://instagram.com/senzi.lisboa" style="text-decoration:none; color:inherit;">Instagram</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Senzi Lisboa. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleGallery() {
+            const modal = document.getElementById('galleryModal');
+            const body = document.body;
+            modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
+            body.classList.toggle('modal-open');
+        }
+
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            window.scrollY > 50 ? nav.classList.add('scrolled') : nav.classList.remove('scrolled');
+        });
+
+        function openMenu(evt, menuName) {
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(menuName).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+
+        function setLanguage(lang) {
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.innerText.toLowerCase() === lang));
+            document.querySelectorAll('[data-en]').forEach(el => {
+                const text = el.getAttribute(`data-${lang}`);
+                if (text) el.innerHTML = text;
+            });
+            localStorage.setItem('lang', lang);
+        }
+
+        window.onload = () => {
+            const saved = localStorage.getItem('lang');
+            if (saved) setLanguage(saved);
+        };
+    </script>
+</body>
+</html>            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
         @media (max-width: 768px) {
             .container { padding: 0 20px; }
         }
