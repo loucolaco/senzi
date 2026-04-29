@@ -217,6 +217,7 @@
             color: var(--color-sand);
         }
 
+        /* Custom White Button for Workshops */
         .btn-white-bg {
             background-color: #FFFFFF !important;
             color: #000000 !important;
@@ -727,7 +728,15 @@
             100% { transform: translateX(-50%); }
         }
 
-        /* Banners Grid */
+        .whisper-cta {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            opacity: 0.5;
+        }
+        
         .banners-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -765,6 +774,18 @@
             font-weight: 700;
             color: var(--color-charcoal);
             text-decoration: underline;
+        }
+
+        .press-mentions {
+            margin-top: 60px;
+        }
+
+        .press-mentions p {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 30px;
+            opacity: 0.4;
         }
 
         /* Gallery Modal Styles */
@@ -823,74 +844,52 @@
             overflow: hidden;
         }
 
-        .whisper-cta {
-            text-align: center;
-            margin-top: 60px;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            opacity: 0.5;
-        }
+        /* -------------------------------------------------- */
+        /* AS CORREÇÕES PARA TELEMÓVEL (MOBILE FIXES)         */
+        /* -------------------------------------------------- */
+        @media (max-width: 768px) {
+            /* 1. Navbar: Evitar sobreposição */
+            .nav-container { grid-template-columns: 1fr auto; }
+            .nav-left, .nav-right a:not(.btn-nav):not(.lang-selector) { display: none; }
+            .nav-right { gap: 15px; }
+            #navbar { padding: 15px 0; }
+            
+            /* 2. Hero & Textos: Escalar fontes */
+            .hero h1 { font-size: 42px; line-height: 1.1; }
+            .hero-btns { flex-direction: column; gap: 12px; }
+            .btn { width: 100%; padding: 15px; }
+            .hero-tags { position: relative; bottom: 0; margin-top: 40px; padding: 0 20px; }
 
-        .press-mentions {
-            margin-top: 60px;
-        }
-
-        .press-mentions p {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            margin-bottom: 30px;
-            opacity: 0.4;
-        }
-
-        /* --- RESPONSIVE ADJUSTMENTS --- */
-        
-        @media (max-width: 1024px) {
-            /* Grid transformation for Visit, Story and Workshops */
-            .story-grid, .workshop-grid, .visit-grid, .banners-grid, .footer-grid { 
+            /* 3. Grids: 2 colunas -> 1 coluna */
+            .story-grid, .workshop-grid, .visit-grid, .banners-grid, .footer-grid, .reviews-grid { 
                 grid-template-columns: 1fr !important; 
                 gap: 40px; 
             }
-            .reviews-grid { grid-template-columns: 1fr; }
             
-            /* Navbar Optimization */
-            .nav-container { grid-template-columns: 1fr auto; }
-            .nav-left, .nav-right a:not(.btn-nav) { display: none; }
-        }
-
-        @media (max-width: 768px) {
-            /* Menu Grid Auto-adjustment */
-            .menu-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
+            /* 4. Menu Grid: Ajuste para não ficar espremido */
+            .menu-grid { 
+                grid-template-columns: 1fr !important; 
+                gap: 40px; 
+            }
+            .menu-card img { aspect-ratio: 1; } /* Imagem mais quadrada no mobile */
+            
+            /* 5. Espaçamentos Gerais */
+            .story-section, .menu-section, .workshop-section, .social-proof, .visit-section { 
+                padding: 60px 0; 
+            }
+            .visit-card-box, .philosophy-box, .banner, .workshop-card { 
+                padding: 40px 20px; 
             }
             
-            /* Image & Text scaling for mobile */
-            .menu-card img {
-                aspect-ratio: 1; /* Benedict and other plates occupy correct width */
-            }
-            
-            .menu-card h3 { font-size: 16px; }
-            .price { font-size: 18px; }
-            
-            .hero h1 { font-size: 48px; }
-            .hero-btns { flex-direction: column; gap: 15px; }
-            
-            /* Tab Nav optimization */
-            .tab-nav {
-                gap: 15px;
-                overflow-x: auto;
-                justify-content: flex-start;
-                padding-bottom: 10px;
+            /* 6. Tabs Scrollable */
+            .tab-nav { 
+                gap: 20px; 
+                overflow-x: auto; 
+                justify-content: flex-start; 
+                padding: 0 20px 10px;
                 -webkit-overflow-scrolling: touch;
             }
-            .tab-btn { font-size: 11px; white-space: nowrap; }
-
-            /* Visit/Workshops padding */
-            .visit-card-box, .philosophy-box, .workshop-card, .banner {
-                padding: 40px 24px;
-            }
+            .tab-btn { white-space: nowrap; }
         }
     </style>
 </head>
@@ -920,13 +919,16 @@
         <div class="container">
             <h1 data-en="A place to be.<br>Not to perform." data-pt="Um lugar para estar.<br>Não para atuar.">A place to be.<br>Not to perform.</h1>
             <p class="hero-sub" data-en="Specialty coffee. Ceremonial matcha from Japan. Brunch kitchen. Cais do Sodré, Lisboa. Leave the laptop at home." data-pt="Café de especialidade. Matcha cerimonial do Japão. Cozinha de brunch. Cais do Sodré, Lisboa. Deixe o portátil em casa.">Specialty coffee. Ceremonial matcha from Japan. Brunch kitchen. Cais do Sodré, Lisboa. Leave the laptop at home.</p>
+            
             <div class="hero-stats" data-en="⭐ 4.9 · 800 Google Reviews · Featured in Time Out Lisboa · European Coffee Trip · @senzi.lisboa" data-pt="⭐ 4.9 · 800 Críticas Google · Destaque na Time Out Lisboa · European Coffee Trip · @senzi.lisboa">
                 ⭐ 4.9 · 800 Google Reviews · Featured in Time Out Lisboa · European Coffee Trip · @senzi.lisboa
             </div>
+
             <div class="hero-btns">
                 <a href="#visit" class="btn btn-primary" data-en="Find us & Visit" data-pt="Onde estamos">Find us & Visit</a>
                 <a href="#menu" class="btn btn-secondary" data-en="Explore the menu" data-pt="Explorar o menu">Explore the menu</a>
             </div>
+
             <div class="hero-tags">
                 <span class="tag">Morning coffee ☕</span>
                 <span class="tag">Matcha ritual 🍵</span>
@@ -956,6 +958,7 @@
             <div class="menu-header">
                 <span class="eyebrow" style="color:var(--color-charcoal-muted);" data-en="Kitchen · Coffee · Matcha" data-pt="Cozinha · Café · Matcha">Kitchen · Coffee · Matcha</span>
                 <h2 data-en="Everything on the menu<br>is worth slowing down for." data-pt="Tudo no menu<br>vale a pena ser saboreado sem pressa.">Everything on the menu<br>is worth slowing down for.</h2>
+                <p style="font-size:14px; margin-top:20px; opacity:0.6;" data-en="VAT included. All prices are in euros. Please inform us about any food allergies or special dietary requirements." data-pt="IVA incluído. Todos os preços são em euros. Por favor, informe-nos sobre quaisquer alergias alimentares ou requisitos dietéticos especiais.">VAT included. All prices are in euros. Please inform us about any food allergies or special dietary requirements.</p>
             </div>
 
             <div class="tab-nav">
@@ -968,15 +971,126 @@
             <div id="food" class="tab-content active">
                 <div class="menu-grid">
                     <div class="menu-category" data-en="All Day Breakfast" data-pt="Pequeno-Almoço Todo o Dia">All Day Breakfast</div>
+                    
                     <div class="menu-card">
                         <img src="IMG_7243.jpg" alt="Benedict Orange-Miso">
                         <div class="card-header"><h3 data-en="Benedict with Orange-Miso Hollandaise" data-pt="Benedict com Holandês de Laranja e Miso">Benedict with Orange-Miso Hollandaise</h3><span class="price">15</span></div>
                         <p data-en="Seeded tartine, avocado mash, salted salmon, poached egg, citrus-miso hollandaise." data-pt="Tartine de sementes, puré de abacate, salmão curado, ovo escalfado, molho holandês de citrinos e miso.">Seeded tartine, avocado mash, salted salmon, poached egg, citrus-miso hollandaise.</p>
                     </div>
+
                     <div class="menu-card">
                         <img src="IMG_7245.jpg" alt="Omelette with Salmon">
                         <div class="card-header"><h3 data-en="Omelette with Salmon and Harissa Yoghurt" data-pt="Omeleta com Salmão e Iogurte Harissa">Omelette with Salmon and Harissa Yoghurt</h3><span class="price">14</span></div>
                         <p data-en="French omelette, mozzarella cheese, citrus cream cheese, salted salmon, harissa yoghurt." data-pt="Omeleta francesa, queijo mozzarella, creme de queijo cítrico, salmão curado, iogurte harissa.">French omelette, mozzarella cheese, citrus cream cheese, salted salmon, harissa yoghurt.</p>
+                        <small data-en="+ seeded sourdough bread 1.5" data-pt="+ pão de massa mãe com sementes 1.5">+ seeded sourdough bread 1.5</small>
+                    </div>
+
+                    <div class="menu-card">
+                        <img src="IMG_7246.jpg" alt="Green Omelette">
+                        <div class="card-header"><h3 data-en="Green Omelette with Avocado" data-pt="Omeleta Verde com Abacate">Green Omelette with Avocado</h3><span class="price">14</span></div>
+                        <p data-en="Spinach omelette, citrus cream cheese, avocado, asparagus, greens." data-pt="Omeleta de espinafres, creme de queijo cítrico, abacate, espargos, verdes.">Spinach omelette, citrus cream cheese, avocado, asparagus, greens.</p>
+                        <small data-en="+ salted salmon 6 / + harissa chicken 5 / + seeded sourdough bread 1.5" data-pt="+ salmão curado 6 / + frango harissa 5 / + pão de massa mãe com sementes 1.5">+ salted salmon 6 / + harissa chicken 5 / + pão de massa mãe com sementes 1.5</small>
+                    </div>
+
+                    <div class="menu-card">
+                        <img src="IMG_7247.jpg" alt="Soft-Boiled Eggs with Red Hummus">
+                        <div class="badge-container"><span class="badge spicy" data-en="Spicy" data-pt="Picante">Spicy</span></div>
+                        <div class="card-header"><h3 data-en="Soft-Boiled Eggs with Red Hummus & Chicken Meatballs" data-pt="Ovos Escalfados com Hummus Vermelho e Almôndegas de Frango">Soft-Boiled Eggs with Red Hummus & Chicken Meatballs</h3><span class="price">14</span></div>
+                        <p data-en="Red pepper hummus, chicken meatballs, soft-boiled eggs, wholegrain flatbread and dukkah." data-pt="Hummus de pimento vermelho, almôndegas de frango, ovos de gema mole, pão achatado integral e dukkah.">Red pepper hummus, chicken meatballs, soft-boiled eggs, wholegrain flatbread and dukkah.</p>
+                    </div>
+
+                    <div class="menu-card">
+                        <img src="IMG_7248.jpg" alt="Wholegrain Flatbread Harissa Chicken">
+                        <div class="badge-container"><span class="badge spicy" data-en="Spicy" data-pt="Picante">Spicy</span></div>
+                        <div class="card-header"><h3 data-en="WHOLEGRAIN FLATBREAD WITH HARISSA CHICKEN AND SCRAMBLED EGGS" data-pt="PÃO ACHATADO INTEGRAL COM FRANGO HARISSA E OVOS MEXIDOS">WHOLEGRAIN FLATBREAD WITH HARISSA CHICKEN AND SCRAMBLED EGGS</h3><span class="price">13</span></div>
+                        <p data-en="Warm flatbread, harissa chicken, avocado, soft scrambled eggs, parmesan, pickled cucumbers and greens." data-pt="Pão achatado quente, frango harissa, abacate, ovos mexidos cremosos, parmesão, pepinos em conserva e verdes.">Warm flatbread, harissa chicken, avocado, soft scrambled eggs, parmesan, pickled cucumbers and greens.</p>
+                    </div>
+
+                    <div class="menu-card">
+                        <img src="IMG_7249.jpg" alt="Wholegrain Flatbread Vegan">
+                        <div class="badge-container"><span class="badge vegan">Vegan</span></div>
+                        <div class="card-header"><h3 data-en="WHOLEGRAIN FLATBREAD WITH TOFU-CASHEW CREAM AND AVOCADO VEGAN" data-pt="PÃO ACHATADO INTEGRAL COM CREME DE TOFU-CAJU E ABACATE VEGAN">WHOLEGRAIN FLATBREAD WITH TOFU-CASHEW CREAM AND AVOCADO VEGAN</h3><span class="price">12</span></div>
+                        <p data-en="Warm flatbread, tofu-cashew cream, avocado, togarashi spice." data-pt="Pão achatado quente, creme de tofu e caju, abacate, especiaria togarashi.">Warm flatbread, tofu-cashew cream, avocado, togarashi spice.</p>
+                    </div>
+
+                    <div class="menu-card">
+                        <img src="IMG_7250.jpg" alt="Calabrian Egg">
+                        <div class="card-header"><h3 data-en="Calabrian Egg" data-pt="Ovo Calábria">Calabrian Egg</h3><span class="price">10</span></div>
+                        <p data-en="Mix of cream cheese with yoghurt, olive oil, Calabrian peppers, dried tomatoes, mint, marinated mustard grains, soft-boiled egg, thyme, garlic powder." data-pt="Mistura de creme de queijo com iogurte, azeite, pimentos da Calábria, tomate seco, hortelã, grãos de mostarda marinados, ovo de gema mole, tomilho e alho em pó.">Mix of cream cheese with yoghurt, olive oil, Calabrian peppers, dried tomatoes, mint, marinated mustard grains, soft-boiled egg, thyme, garlic powder.</p>
+                    </div>
+
+                    <div class="menu-card">
+                        <img src="IMG_7251.jpg" alt="Creamy Scrambled Eggs">
+                        <div class="card-header"><h3 data-en="CREAMY SCRAMBLED EGGS WITH PARMESAN CHEESE" data-pt="OVOS MEXIDOS CREMOSOS COM QUEIJO PARMESÃO">CREAMY SCRAMBLED EGGS WITH PARMESAN CHEESE</h3><span class="price">9</span></div>
+                        <p data-en="Perfect scrambled eggs, cream, parmesan, seeded sourdough, togarashi spice, pickled onion." data-pt="Ovos mexidos perfeitos, natas, parmesão, pão de massa mãe com sementes, especiaria togarashi, cebola em conserva.">Perfect scrambled eggs, cream, parmesan, seeded sourdough, togarashi spice, pickled onion.</p>
+                        <small data-en="+ salted salmon 6 / + harissa chicken 5 / + avocado 4 / + whipped lemon cream cheese 4" data-pt="+ salmão curado 6 / + frango harissa 5 / + abacate 4 / + creme de queijo de limão batido 4">+ salted salmon 6 / + frango harissa 5 / + abacate 4 / + creme de queijo de limão batido 4</small>
+                    </div>
+
+                    <div class="menu-category" data-en="Bowls" data-pt="Bowls">Bowls</div>
+
+                    <div class="menu-card">
+                        <img src="IMG_7252.jpg" alt="Green Bowl Quinoa">
+                        <div class="badge-container"><span class="badge vegan">Vegan</span></div>
+                        <div class="card-header"><h3 data-en="GREEN BOWL WITH QUINOA AND PONZU DRESSING" data-pt="BOWL VERDE COM QUINOA E MOLHO PONZU">GREEN BOWL WITH QUINOA AND PONZU DRESSING</h3><span class="price">13</span></div>
+                        <p data-en="Quinoa, broccolini, courgette, edamame, asparagus, avocado, ponzu, pickled cucumber, fennel." data-pt="Quinoa, brócolos, curgete, edamame, espargos, abacate, ponzu, pepino em conserva, funcho.">Quinoa, broccolini, courgette, edamame, asparagus, avocado, ponzu, pickled cucumber, fennel.</p>
+                        <small data-en="+ salted salmon 6 / + poached egg 1" data-pt="+ salmão curado 6 / + ovo escalfado 1">+ salted salmon 6 / + poached egg 1</small>
+                    </div>
+
+                    <div class="menu-card">
+                        <img src="IMG_7253.jpg" alt="Silky Yoghurt">
+                        <div class="card-header"><h3 data-en="SILKY YOGHURT WITH CARAMELISED PLUM AND NITS" data-pt="IOGURTE SEDOSO COM AMEIXA CARAMELIZADA E FRUTOS SECOS">SILKY YOGHURT WITH CARAMELISED PLUM AND NITS</h3><span class="price">10</span></div>
+                        <p data-en="Mix of cream cheese with yoghurt, caramelised plum, caramelised nuts (almond, cashew), parsley oil (green oil), mint leaves, lemon chilli gel." data-pt="Mistura de creme de queijo com iogurte, azeite, pimentos da Calábria, tomate seco, hortelã, grãos de mostarda marinados, ovo de gema mole, tomilho e alho em pó.">Mix of cream cheese with yoghurt, caramelised plum, caramelised nuts (almond, cashew), parsley oil (green oil), mint leaves, lemon chilli gel.</p>
+                    </div>
+
+                    <div class="menu-card">
+                        <img src="IMG_7254.jpg" alt="Warm Overnight Porridge">
+                        <div class="badge-container"><span class="badge vegan">Vegan</span></div>
+                        <div class="card-header"><h3 data-en="WARM OVERNIGHT PORRIDGE WITH COCONUT AND MANGO" data-pt="PAPA DE AVEIA QUENTE COM COCO E MANGA">WARM OVERNIGHT PORRIDGE WITH COCONUT AND MANGO</h3><span class="price">10</span></div>
+                        <p data-en="Coconut, oats, quinoa, chia, mango, blueberry jam, crunchy coconut topping com cashews and pumpkin seeds." data-pt="Coco, aveia, quinoa, chia, manga, doce de mirtilo, cobertura crocante de coco com caju e sementes de abóbora.">Coconut, oats, quinoa, chia, manga, doce de mirtilo, cobertura crocante de coco com caju e sementes de abóbora.</p>
+                    </div>
+
+                    <div class="menu-card">
+                        <img src="IMG_7255.jpg" alt="Rice Pudding Mango">
+                        <div class="card-header"><h3 data-en="RICE PUDDING WITH MANGO" data-pt="ARROZ DOCE DE COCO COM MANGA">RICE PUDDING WITH MANGO</h3><span class="price">8</span></div>
+                        <p data-en="Rice-coconut pudding, mango, raspberry dust." data-pt="Pudim de arroz e coco, manga, pó de framboesa.">Rice-coconut pudding, mango, raspberry dust.</p>
+                    </div>
+
+                    <div class="menu-category" data-en="Mains" data-pt="Pratos Principais">Mains</div>
+
+                    <div class="menu-card">
+                        <img src="IMG_7256.jpg" alt="Signature Burger">
+                        <div class="card-header"><h3 data-en="SIGNATURE BURGER" data-pt="HAMBÚRGUER DE ASSINATURA">SIGNATURE BURGER</h3><span class="price">14</span></div>
+                        <p data-en="Quality beef or chicken, served with our special sauce and fresh ingredients." data-pt="Vaca ou frango de qualidade, servido com o nosso molho especial e ingredientes frescos.">Quality beef or chicken, served with our special sauce and fresh ingredients.</p>
+                    </div>
+
+                    <div class="menu-card">
+                        <img src="IMG_7257.jpg" alt="Cold Almond Soup">
+                        <div class="card-header"><h3 data-en="COLD ALMOND SOUP" data-pt="SOPA FRIA DE AMÊNDOA">COLD ALMOND SOUP</h3><span class="price">9</span></div>
+                        <p data-en="Refreshing traditional cold soup with almonds and garlic." data-pt="Sopa fria tradicional e refrescante com amêndoas e alho.">Refreshing traditional cold soup with almonds and garlic.</p>
+                    </div>
+
+                    <div class="menu-card">
+                        <img src="IMG_7258.jpg" alt="Chicken & Mash">
+                        <div class="card-header"><h3 data-en="CHICKEN & MASH WITH MISO GREMOLATA" data-pt="FRANGO E PURÉ COM GREMOLATA DE MISO">CHICKEN & MASH WITH MISO GREMOLATA</h3><span class="price">15</span></div>
+                        <p data-en="Tender chicken served with creamy mash and a unique miso-based gremolata." data-pt="Frango tenro servido com puré cremoso e uma gremolata única à base de miso.">Tender chicken served with creamy mash and a unique miso-based gremolata.</p>
+                    </div>
+
+                    <div class="menu-card">
+                        <img src="IMG_7259.jpg" alt="Zesty Lemon Salmon">
+                        <div class="card-header"><h3 data-en="ZESTY LEMON SALMON" data-pt="SALMÃO CÍTRICO DE LIMÃO">ZESTY LEMON SALMON</h3><span class="price">17</span></div>
+                        <p data-en="Pan-seared salmon with a bright lemon zest finish." data-pt="Salmão selado com um toque vibrante de raspas de limão.">Pan-seared salmon with a bright lemon zest finish.</p>
+                    </div>
+
+                    <div class="menu-card">
+                        <img src="IMG_7260.jpg" alt="Broccoli Hash Salmon">
+                        <div class="card-header"><h3 data-en="BROCCOLI HASH SALMON" data-pt="HASH DE BRÓCOLOS COM SALMÃO">BROCCOLI HASH SALMON</h3><span class="price">16</span></div>
+                        <p data-en="Crispy broccoli hash topped with salted salmon." data-pt="Hash de brócolos crocante coberto com salmão curado.">Crispy broccoli hash topped with salted salmon.</p>
+                    </div>
+
+                    <div class="menu-card">
+                        <img src="IMG_7261.jpg" alt="Broccoli Hash Mushrooms">
+                        <div class="card-header"><h3 data-en="BROCCOLI HASH MUSHROOMS" data-pt="HASH DE BRÓCOLOS COM COGUMELOS">BROCCOLI HASH MUSHROOMS</h3><span class="price">14</span></div>
+                        <p data-en="Crispy broccoli hash served with sautéed seasonal mushrooms." data-pt="Hash de brócolos crocante servido com cogumelos sazonais salteados.">Crispy broccoli hash served with sautéed seasonal mushrooms.</p>
                     </div>
                 </div>
             </div>
@@ -984,10 +1098,35 @@
             <div id="coffee" class="tab-content">
                 <div class="menu-grid">
                     <div class="menu-category" data-en="Coffee Bar" data-pt="Bar de Café">Coffee Bar <span style="font-size:14px; font-family:var(--font-body); letter-spacing:0; text-transform:none; color:var(--color-charcoal-muted); margin-left:15px;">by Nomad Coffee Roasters</span></div>
+                    
                     <div class="menu-card">
                         <img src="IMG_7268.jpg" alt="Mont Blanc Cold Coffee">
                         <div class="card-header"><h3 data-en="Mont Blanc cold coffee" data-pt="Café Frio Mont Blanc">Mont Blanc cold coffee</h3><span class="price">5.5</span></div>
                     </div>
+
+                    <div class="menu-card">
+                        <img src="IMG_7269.jpg" alt="Cherry Almond Espresso Tonic">
+                        <div class="card-header"><h3 data-en="cherry almond espresso tonic" data-pt="Espresso Tonic de Cereja e Amêndoa">cherry almond espresso tonic</h3><span class="price">6</span></div>
+                    </div>
+
+                    <div class="menu-card">
+                        <img src="IMG_7270.jpg" alt="Cranberry Cold Brew">
+                        <div class="card-header"><h3 data-en="CRANBERRY COLD BREW" data-pt="COLD BREW DE ARANFOS">CRANBERRY COLD BREW</h3><span class="price">5.5</span></div>
+                    </div>
+
+                    <div class="menu-card">
+                        <img src="IMG_7271.jpg" alt="Banana Brulee Latte">
+                        <div class="card-header"><h3 data-en="BANANA BRULEE LATTE" data-pt="LATTE DE BANANA BRULEE">BANANA BRULEE LATTE</h3><span class="price">6</span></div>
+                    </div>
+
+                    <div class="menu-card"><div class="card-header"><h3 data-en="Espresso Single" data-pt="Espresso Curto">Espresso Single</h3><span class="price">1.8</span></div></div>
+                    <div class="menu-card"><div class="card-header"><h3 data-en="Espresso Double" data-pt="Espresso Duplo">Espresso Double</h3><span class="price">2.5</span></div></div>
+                    <div class="menu-card"><div class="card-header"><h3 data-en="Americano" data-pt="Americano">Americano</h3><span class="price">3</span></div></div>
+                    <div class="menu-card"><div class="card-header"><h3 data-en="Flat White" data-pt="Flat White">Flat White</h3><span class="price">3.8</span></div></div>
+                    <div class="menu-card"><div class="card-header"><h3 data-en="Latte" data-pt="Latte">Latte</h3><span class="price">4</span></div></div>
+                    <div class="menu-card"><div class="card-header"><h3 data-en="Cappuccino" data-pt="Cappuccino">Cappuccino</h3><span class="price">3.5</span></div></div>
+                    <div class="menu-card"><div class="card-header"><h3 data-en="Batch Brew" data-pt="Café de Filtro">Batch Brew</h3><span class="price">3.5</span></div></div>
+                    <div class="menu-card"><div class="card-header"><h3 data-en="V60 Hand Brew" data-pt="V60 Manual">V60 Hand Brew</h3><span class="price">5.5</span></div></div>
                 </div>
             </div>
 
@@ -997,7 +1136,24 @@
                     <div class="menu-card">
                         <img src="IMG_7262.jpg" alt="Vegan Sakura Matcha Cloud Latte">
                         <div class="card-header"><h3>Vegan Sakura Matcha Cloud Latte</h3><span class="price">6.5</span></div>
+                        <p>Japanese matcha, vanilla foam with beetroot.</p>
                     </div>
+                    <div class="menu-card">
+                        <img src="IMG_7263.jpg" alt="Banana Hojicha Oat Latte">
+                        <div class="card-header"><h3>Banana Hojicha Oat Latte</h3><span class="price">6</span></div>
+                        <p>Hojicha, oat milk, natural banana syrup.</p>
+                    </div>
+                    <div class="menu-card">
+                        <img src="IMG_7264.jpg" alt="Piña Matcha Colada">
+                        <div class="card-header"><h3>PIÑA MATCHA COLADA</h3><span class="price">7</span></div>
+                        <p>Japanese matcha, coconut milk, pineapple and lime juice.</p>
+                    </div>
+                    <div class="menu-card">
+                        <div class="card-header"><h3>Matcha Cloud Latte</h3><span class="price">6</span></div>
+                        <p>Japanese matcha, oat milk, special foam.</p>
+                    </div>
+                    <div class="menu-card"><div class="card-header"><h3>Classic Matcha Latte</h3><span class="price">5</span></div></div>
+                    <div class="menu-card"><div class="card-header"><h3>Matcha Tonic</h3><span class="price">5.5</span></div></div>
                 </div>
             </div>
 
@@ -1006,10 +1162,21 @@
                     <div class="menu-category" data-en="House Made Drinks" data-pt="Bebidas Caseiras">House Made Drinks</div>
                     <div class="menu-card">
                         <img src="IMG_7265.jpg" alt="Natural Peach Lemonade">
-                        <div class="card-header"><h3>NATURAL PEACH LEMONADE</h3><span class="price">5</span></div>
+                        <div class="card-header"><h3 data-en="NATURAL PEACH LEMONADE" data-pt="LIMONADA NATURAL DE PÊSSEGO">NATURAL PEACH LEMONADE</h3><span class="price">5</span></div>
                     </div>
+                    <div class="menu-card">
+                        <img src="IMG_7266.jpg" alt="Da Hong Pao Foam">
+                        <div class="card-header"><h3>DA HONG PAO FOAM</h3><span class="price">5.5</span></div>
+                    </div>
+                    <div class="menu-card">
+                        <img src="IMG_7267.jpg" alt="Tangerine Tonic">
+                        <div class="card-header"><h3 data-en="TANGERINE TONIC" data-pt="TONIC DE TANGERINA">TANGERINE TONIC</h3><span class="price">5.5</span></div>
+                    </div>
+                    <div class="menu-card"><div class="card-header"><h3>Fresh Orange Juice</h3><span class="price">4.5</span></div></div>
+                    <div class="menu-card"><div class="card-header"><h3>Kombucha (Sencha / Ginger)</h3><span class="price">5.5</span></div></div>
                 </div>
             </div>
+
             <div class="whisper-cta" data-en="Leaving the laptop at home? Have a free smile." data-pt="Deixou o portátil em casa? Receba um sorriso grátis.">Leaving the laptop at home? Have a free smile.</div>
         </div>
     </section>
@@ -1018,69 +1185,150 @@
         <div class="container">
             <span class="eyebrow" style="color:var(--color-charcoal-muted);" data-en="Education · Ritual · Community" data-pt="Educação · Ritual · Comunidade">Education · Ritual · Community</span>
             <h2 data-en="Matcha Workshops" data-pt="Workshops de Matcha">Matcha Workshops</h2>
+            <p class="workshop-intro" data-en="We don't just serve matcha; we share the craft. Join us for an intimate session to learn the history, the tools, and the technique of preparing ceremonial grade matcha." data-pt="Não servimos apenas matcha; partilhamos a arte. Junte-se a nós numa sessão intimista para aprender a história, os utensílios e a técnica de preparação de matcha de grau cerimonial.">We don't just serve matcha; we share the craft. Join us for an intimate session to learn the history, the tools, and the technique of preparing ceremonial grade matcha.</p>
+            
             <div class="workshop-grid">
                 <div class="workshop-card">
                     <span class="eyebrow" data-en="Level I" data-pt="Nível I">Level I</span>
                     <h3 data-en="The Ritual Basics" data-pt="Os Básicos do Ritual">The Ritual Basics</h3>
-                    <ul class="w-details"><li>✦ History</li><li>✦ Whisking technique</li></ul>
-                    <a href="https://instagram.com/senzi.lisboa" class="btn btn-secondary btn-white-bg">DM to Book</a>
+                    <ul class="w-details">
+                        <li data-en="✦ History of the tea leaf" data-pt="✦ História da folha de chá">✦ History of the tea leaf</li>
+                        <li data-en="✦ Understanding ceremonial grades" data-pt="✦ Compreender os graus cerimoniais">✦ Understanding ceremonial grades</li>
+                        <li data-en="✦ Hand-whisking technique" data-pt="✦ Técnica de batido manual">✦ Hand-whisking technique</li>
+                        <li data-en="✦ 90 Minutes · Includes a tasting" data-pt="✦ 90 Minutos · Inclui degustação">✦ 90 Minutes · Includes a tasting</li>
+                    </ul>
+                    <a href="https://instagram.com/senzi.lisboa" class="btn btn-secondary btn-white-bg" data-en="DM to Book" data-pt="Mensagem para Reservar">DM to Book</a>
                 </div>
+
                 <div class="workshop-card highlight">
-                    <span class="eyebrow">Level II</span>
+                    <span class="eyebrow" style="color:var(--color-matcha-deep);" data-en="Level II" data-pt="Nível II">Level II</span>
                     <h3 data-en="The Modern Matcha" data-pt="O Matcha Moderno">The Modern Matcha</h3>
-                    <a href="https://instagram.com/senzi.lisboa" class="btn btn-primary">DM to Book</a>
+                    <p class="w-quote" data-en='"Texture is everything."' data-pt='"A textura é tudo."'>"Texture is everything."</p>
+                    <ul class="w-details">
+                        <li data-en="✦ Cloud foam preparation" data-pt="✦ Preparação de espuma 'cloud'">✦ Cloud foam preparation</li>
+                        <li data-en="✦ Plant-based milk pairing" data-pt="✦ Combinação com leites vegetais">✦ Plant-based milk pairing</li>
+                        <li data-en="✦ Seasonal recipes (Sakura/Banana)" data-pt="✦ Receitas sazonais (Sakura/Banana)">✦ Seasonal recipes (Sakura/Banana)</li>
+                        <li data-en="✦ 2 Hours · Limited to 4 people" data-pt="✦ 2 Horas · Limitado a 4 pessoas">✦ 2 Hours · Limited to 4 people</li>
+                    </ul>
+                    <a href="https://instagram.com/senzi.lisboa" class="btn btn-primary" data-en="DM to Book" data-pt="Mensagem para Reservar">DM to Book</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="visit" class="visit-section">
+    <div class="social-proof">
         <div class="container">
-            <div class="visit-grid">
-                <div class="visit-card-box">
-                    <div class="v-section">
-                        <h4>Address</h4>
-                        <p>Rua da Moeda 12, 1200-275 Lisboa</p>
-                    </div>
-                    <div class="v-section">
-                        <h4>Hours</h4>
-                        <p>Mon – Fri: 09:00 – 18:00</p>
-                        <p>Sat – Sun: 09:00 – 19:00</p>
-                    </div>
-                </div>
-                <div class="philosophy-box">
-                    <h3>Architecture of Calm</h3>
-                    <p>Designed by NWDS studio.</p>
-                    <button onclick="toggleGallery()" class="btn btn-secondary" style="border-color:white; color:white;">Learn More</button>
-                </div>
+            <h2 data-en="The feeling is mutual." data-pt="O sentimento é mútuo.">The feeling is mutual.</h2>
+            <div class="stat-row">
+                <span data-en="800+ Google Reviews" data-pt="Mais de 800 Críticas Google">800+ Google Reviews</span>
+                <span data-en="Time Out Recommended" data-pt="Recomendado pela Time Out">Time Out Recommended</span>
+                <span data-en="Specialty Coffee Map" data-pt="Mapa de Cafés de Especialidade">Specialty Coffee Map</span>
             </div>
-            <div class="banners-grid">
-                <div class="banner"><h4>Nomad Coffee</h4><p>Barcelona's best in Lisbon.</p></div>
-                <div class="banner nomad"><h4>No Laptops</h4><p>Focus on the connection.</p></div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Gallery Modal -->
-    <div id="galleryModal" class="modal">
-        <span class="close-modal" onclick="toggleGallery()">&times;</span>
-        <div class="modal-content">
-            <div class="gallery-grid">
-                <img src="IMG_7302.jpg"> <img src="IMG_7303.jpg"> <img src="IMG_7304.jpg"> <img src="IMG_7305.jpg">
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p data-en='"The aesthetic is incredible, but the matcha is the real reason to come."' data-pt='"A estética é incrível, mas o matcha é a verdadeira razão para vir."'>"The aesthetic is incredible, but the matcha is the real reason to come."</p>
+                    <span class="reviewer">— Sofia M.</span>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p data-en='"Finally a place that prioritizes the atmosphere over laptop culture."' data-pt='"Finalmente um lugar que prioriza a atmosfera em vez da cultura dos portáteis."'>"Finally a place that prioritizes the atmosphere over laptop culture."</p>
+                    <span class="reviewer">— David L.</span>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p data-en='"The timber design is breathtaking. Every detail is perfect."' data-pt='"O design de madeira é deslumbrante. Cada detalhe é perfeito."'>"The timber design is breathtaking. Every detail is perfect."</p>
+                    <span class="reviewer">— Elena R.</span>
+                </div>
+            </div>
+
+            <div class="ticker-wrap">
+                <div class="ticker">
+                    <span data-en="A place to be. Not to perform." data-pt="Um lugar para estar. Não para atuar.">A place to be. Not to perform.</span>
+                    <span data-en="No laptops, just conversation." data-pt="Sem portáteis, apenas conversa.">No laptops, just conversation.</span>
+                    <span>Senzi: A sensation.</span>
+                </div>
             </div>
         </div>
     </div>
 
+    <section id="visit" class="visit-section">
+        <div class="container">
+            <div class="visit-header">
+                <span class="eyebrow" style="color:var(--color-charcoal-muted);" data-en="Find Us" data-pt="Encontre-nos">Find Us</span>
+                <h2 data-en="We're in the heart<br>of Cais do Sodré." data-pt="Estamos no coração<br>do Cais do Sodré.">We're in the heart<br>of Cais do Sodré.</h2>
+            </div>
+
+            <div class="visit-grid">
+                <div class="visit-card-box">
+                    <div class="v-section">
+                        <h4 data-en="Address" data-pt="Morada">Address</h4>
+                        <p>Rua da Moeda 12, 1200-275 Lisboa, Portugal</p>
+                    </div>
+                    <div class="v-section">
+                        <h4 data-en="Hours" data-pt="Horário">Hours</h4>
+                        <p>Mon – Fri: 09:00 – 18:00</p>
+                        <p>Sat – Sun: 09:00 – 19:00</p>
+                    </div>
+                </div>
+
+                <div class="philosophy-box">
+                    <span class="eyebrow" style="color:white; opacity:0.7;" data-en="Our Space" data-pt="O Nosso Espaço">Our Space</span>
+                    <h3 data-en="Architecture of Calm" data-pt="Arquitetura da Calma">Architecture of Calm</h3>
+                    <p data-en="Designed by NWDS studio to reflect a Japanese timber grid." data-pt="Desenhado pelo estúdio NWDS para refletir uma estrutura de madeira japonesa.">Designed by NWDS studio to reflect a Japanese timber grid.</p>
+                    <button onclick="toggleGallery()" class="btn btn-secondary" style="border-color:white; color:white;" data-en="Learn More" data-pt="Saber Mais">Learn More</button>
+                </div>
+            </div>
+
+            <div class="banners-grid">
+                <div class="banner">
+                    <span class="eyebrow" data-en="The Coffee" data-pt="O Café">The Coffee</span>
+                    <h4>Nomad Coffee Roasters</h4>
+                    <p data-en="Direct trade beans from Barcelona." data-pt="Grãos de comércio direto de Barcelona.">Direct trade beans from Barcelona.</p>
+                </div>
+                <div class="banner nomad">
+                    <span class="eyebrow" data-en="The Policy" data-pt="A Política">The Policy</span>
+                    <h4 data-en="No Laptops, Please" data-pt="Sem Portáteis, por favor">No Laptops, Please</h4>
+                    <p data-en="To preserve the atmosphere." data-pt="Para preservar a atmosfera.">To preserve the atmosphere.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="galleryModal" class="modal">
+            <span class="close-modal" onclick="toggleGallery()">&times;</span>
+            <div class="modal-content">
+                <div class="gallery-grid">
+                    <img src="IMG_7302.jpg"> <img src="IMG_7303.jpg"> <img src="IMG_7304.jpg"> <img src="IMG_7305.jpg">
+                    <img src="IMG_7306.jpg"> <img src="IMG_7307.jpg"> <img src="IMG_7308.jpg"> <img src="IMG_7309.jpg">
+                    <img src="IMG_7310.jpg"> <img src="IMG_7311.jpg"> <img src="IMG_7312.jpg"> <img src="IMG_7313.jpg">
+                    <img src="IMG_7314.jpg"> <img src="IMG_7315.jpg"> <img src="IMG_7316.jpg"> <img src="IMG_7317.jpg">
+                    <img src="IMG_7318.jpg"> <img src="IMG_7319.jpg"> <img src="IMG_7320.jpg"> <img src="IMG_7321.jpg">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="container footer-grid">
-            <div class="f-col"><div class="f-logo">senzi</div></div>
             <div class="f-col">
-                <h4>Navigation</h4>
-                <ul><li><a href="#menu">Menu</a></li><li><a href="#visit">Visit</a></li></ul>
+                <div class="f-logo">senzi</div>
+                <span class="f-sub">kitchen · coffee · matcha</span>
+            </div>
+            <div class="f-col">
+                <h4 data-en="Navigation" data-pt="Navegação">Navigation</h4>
+                <ul>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#space-story">Our Story</a></li>
+                </ul>
+            </div>
+            <div class="f-col">
+                <h4 data-en="Connect" data-pt="Ligar">Connect</h4>
+                <ul><li><a href="https://instagram.com/senzi.lisboa">Instagram</a></li></ul>
             </div>
         </div>
         <div class="container footer-bottom">
-            <div>© 2026 Senzi. All rights reserved.</div>
+            <div data-en="© 2026 Senzi." data-pt="© 2026 Senzi.">© 2026 Senzi.</div>
             <div>Lisboa 🍵</div>
         </div>
     </footer>
@@ -1088,8 +1336,9 @@
     <script>
         function toggleGallery() {
             const modal = document.getElementById('galleryModal');
+            const body = document.body;
             modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
-            document.body.classList.toggle('modal-open');
+            body.classList.toggle('modal-open');
         }
 
         window.addEventListener('scroll', () => {
@@ -1114,8 +1363,8 @@
         }
 
         window.onload = () => {
-            const savedLang = localStorage.getItem('preferredLang');
-            if (savedLang) setLanguage(savedLang);
+            const saved = localStorage.getItem('preferredLang');
+            if (saved) setLanguage(saved);
         };
     </script>
 </body>
